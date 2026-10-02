@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberSaathi – Cybersecurity Awareness</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="main">
+
+        <!-- HEADER -->
+        <div id="header">
+            <div id="logo"><i class="ri-shield-keyhole-line"></i> CyberSaathi</div>
+            <div class="texts">Features</div>
+            <div class="texts">Tools</div>
+            <div class="texts">Threats</div>
+            <div class="texts">Learn</div>
+            <div class="texts">Contact</div>
+            <div id="login"><i class="ri-user-line"></i> Login</div>
+            <div id="try">Get Protected</div>
+        </div>
+
+        <div id="fakeHeader"></div>
+
+        <!-- PAGE 1: HERO -->
+        <div id="page1">
+            <div id="strip">
+                ⚠ THREAT ALERT: 847 new phishing domains detected today — Stay Vigilant ⚠
+            </div>
+
+            <div id="content">
+                <div id="box1">
+                    <h1>Protect Yourself from <span>Cyber Threats</span></h1>
+                    <p>CyberSaathi is a free cybersecurity awareness platform. Learn to spot phishing attacks, test your password strength, and stay safe online.</p>
+                    <div id="btns">
+                        <div id="btn1" onclick="document.getElementById('page2').scrollIntoView({behavior:'smooth'})">Try The Tools</div>
+                        <div id="btn2"><i class="ri-play-circle-line"></i> Watch Demo</div>
+                    </div>
+                </div>
+
+                <!-- Animated Terminal -->
+                <div id="box2">
+                    <div class="terminal-bar">
+                        <div class="dot r"></div>
+                        <div class="dot y"></div>
+                        <div class="dot g"></div>
+                        <span class="terminal-title">cybersaathi-scanner v2.4</span>
+                    </div>
+                    <div class="terminal-body">
+                        <div class="t-line"><span class="cyan">$</span> initiate --scan</div>
+                        <div class="t-line"><span class="gray">Loading threat modules...</span></div>
+                        <div class="t-line"><span class="green">[OK]</span> Password Analyzer loaded</div>
+                        <div class="t-line"><span class="green">[OK]</span> Phishing Detector loaded</div>
+                        <div class="t-line"><span class="cyan">$</span> scan http://suspect-site.com</div>
+                        <div class="t-line"><span class="yellow">[WARN]</span> Suspicious URL patterns found</div>
+                        <div class="t-line"><span class="red">[ALERT]</span> Phishing attempt flagged! &nbsp;<span class="cursor"></span></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="heading">
+                <h1>What can CyberSaathi do for you?</h1>
+                <p>// live security tools at your fingertips //</p>
+            </div>
+        </div>
+
+        <!-- PAGE 2: TOOLS -->
+        <div id="page2">
+            <div class="section-title">
+                <p>// Interactive Tools</p>
+                <h2>Test Your Defenses</h2>
+            </div>
+
+            <div class="tools-grid">
+
+                <!-- Password Analyzer -->
+                <div class="card">
+                    <div class="card-icon"><i class="ri-lock-password-line"></i></div>
+                    <h3>Password Strength Analyzer</h3>
+                    <p>Type a password below to see how strong it is in real time.</p>
+                    <input type="password" class="my-input" id="pwdInput" placeholder="Enter a password..." oninput="analyzePassword(this.value)">
+                    <div class="bar-bg"><div class="bar-fill" id="sBar"></div></div>
+                    <p class="strength-text" id="sLabel">AWAITING INPUT</p>
+                    <div class="checks">
+                        <div class="ck" id="c1">✗ 8+ characters</div>
+                        <div class="ck" id="c2">✗ Uppercase letter</div>
+                        <div class="ck" id="c3">✗ Lowercase letter</div>
+                        <div class="ck" id="c4">✗ Number</div>
+                        <div class="ck" id="c5">✗ Symbol (!@#...)</div>
+                        <div class="ck" id="c6">✗ 12+ characters</div>
+                    </div>
+                </div>
+
+                <!-- Phishing Detector -->
+                <div class="card">
+                    <div class="card-icon"><i class="ri-links-line"></i></div>
+                    <h3>Phishing URL Detector</h3>
+                    <p>Paste any URL below to check it for phishing indicators.</p>
+                    <input type="text" class="my-input" id="urlInput" placeholder="https://example.com">
+                    <button class="scan-btn" onclick="checkURL()"><i class="ri-radar-line"></i> Scan URL</button>
+                    <div class="url-result" id="urlResult">
+                        <i class="ri-information-line"></i> Enter a URL above and click Scan
+                    </div>
+                </div>
+
+                <!-- Quiz -->
+                <div class="card">
+                    <div class="card-icon"><i class="ri-questionnaire-line"></i></div>
+                    <h3>Phishing Awareness Quiz</h3>
+                    <p>Can you spot a scam? Test your knowledge!</p>
+                    <div class="quiz-q" id="quizQ">Loading...</div>
+                    <div class="quiz-opts" id="quizOpts"></div>
+                    <div class="quiz-fb" id="quizFb"></div>
+                    <button class="next-btn" onclick="nextQ()">Next Question →</button>
+                </div>
+
+                <!-- Tips -->
+                <div class="card">
+                    <div class="card-icon"><i class="ri-shield-check-line"></i></div>
+                    <h3>Top Security Tips</h3>
+                    <p>Simple steps to stay protected online every day.</p>
+                    <div class="tips">
+                        <div class="tip">
+                            <div class="tip-num">01</div>
+                            <div><strong>Enable Two-Factor Auth</strong><span>Blocks 99% of automated attacks instantly.</span></div>
+                        </div>
+                        <div class="tip">
+                            <div class="tip-num">02</div>
+                            <div><strong>Hover Before You Click</strong><span>Check real URLs by hovering over links first.</span></div>
+                        </div>
+                        <div class="tip">
+                            <div class="tip-num">03</div>
+                            <div><strong>Use a Password Manager</strong><span>Unique strong passwords for every account.</span></div>
+                        </div>
+                        <div class="tip">
+                            <div class="tip-num">04</div>
+                            <div><strong>Update Your Software</strong><span>Patches close the holes attackers use to get in.</span></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- PAGE 3: THREATS -->
+        <div id="page3">
+            <div class="section-title">
+                <p>// Know Your Enemies</p>
+                <h2>Common Cyber Threats</h2>
+            </div>
+            <div class="threats-grid">
+                <div class="threat-card">
+                    <div class="threat-icon"><i class="ri-mail-forbid-line"></i></div>
+                    <h4>Phishing Attacks</h4>
+                    <p>Fake emails or websites that trick you into handing over your passwords or personal info.</p>
+                    <span class="level critical">CRITICAL</span>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon"><i class="ri-virus-line"></i></div>
+                    <h4>Ransomware</h4>
+                    <p>Malware that locks your files and demands payment to give them back.</p>
+                    <span class="level critical">CRITICAL</span>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon"><i class="ri-spy-line"></i></div>
+                    <h4>Social Engineering</h4>
+                    <p>Manipulating people psychologically to reveal confidential information.</p>
+                    <span class="level high">HIGH</span>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon"><i class="ri-database-2-line"></i></div>
+                    <h4>Data Breaches</h4>
+                    <p>Hackers steal personal or corporate data, often selling it on the dark web.</p>
+                    <span class="level high">HIGH</span>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon"><i class="ri-wifi-off-line"></i></div>
+                    <h4>Man-in-the-Middle</h4>
+                    <p>Attackers secretly intercept your internet traffic to steal data.</p>
+                    <span class="level medium">MEDIUM</span>
+                </div>
+                <div class="threat-card">
+                    <div class="threat-icon"><i class="ri-robot-line"></i></div>
+                    <h4>Credential Stuffing</h4>
+                    <p>Bots try leaked passwords from old breaches on your other accounts.</p>
+                    <span class="level high">HIGH</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div id="footer">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <div class="brand-name">CyberSaathi</div>
+                    <p>Empowering everyone with the tools and knowledge to stay safe online.</p>
+                </div>
+                <div class="footer-col">
+                    <h5>Tools</h5>
+                    <a href="#">Password Analyzer</a>
+                    <a href="#">Phishing Detector</a>
+                    <a href="#">Awareness Quiz</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Learn</h5>
+                    <a href="#">Phishing Guide</a>
+                    <a href="#">Scam Types</a>
+                    <a href="#">Best Practices</a>
+                </div>
+                <div class="footer-col">
+                    <h5>Company</h5>
+                    <a href="#">About</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2025 <span>CyberSaathi</span>. Built for digital safety.</p>
+                <div class="socials">
+                    <a href="#"><i class="ri-twitter-x-line"></i></a>
+                    <a href="#"><i class="ri-github-line"></i></a>
+                    <a href="#"><i class="ri-linkedin-line"></i></a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <script src="script.js"></script>
+
+
+</body>
+</html>
